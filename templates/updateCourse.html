@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+    {%block content%}
+        {%for message in get_flashed_messages(class )%}
+                
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        
+        {%endfor%}
+
+
+        <h1>Update Student:</h1>
+        <div class="shadow p-3 mb-5 bg-body rounded">
+      
+            
+          
+            <form action="{{ url_for('updateCourse', course_id=course_to_update.course_id) }}" method="POST">
+                {{ form.hidden_tag() }}
+                {{ form.update_course_name.label(class="form-label") }}
+                {{ form.update_course_name(class="form-control", value=course_to_update.course_name) }}
+            
+                {{ form.update_course_code.label(class="form-label") }}
+                {{ form.update_course_code(class="form-control", value=course_to_update.course_code) }}
+            
+                {{ form.update_start_time.label(class="form-label") }}
+                {{ form.update_start_time(class="form-control", value=course_to_update.start_time.strftime('%H:%M')) }}
+                {{ form.update_end_time.label(class="form-label") }}
+                {{ form.update_end_time(class="form-control", value=course_to_update.end_time.strftime('%H:%M')) }}
+            
+                <br/>
+                {{form.submit(class = "btn btn-primary")}}
+                <a class="btn btn-danger" href="{{url_for('deleteCourse',course_id = course_to_update.course_id)}}">Delete</a>
+            </form>
+            
+            </div>
+    
+    {%endblock%}

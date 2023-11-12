@@ -1,4 +1,7 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+
+{% block title %}Automatic Attendance{% endblock %}
+
 {% block content %}
     <h1>Automatic Attendance</h1>
 
@@ -8,9 +11,6 @@
         {{ course_form.course(class="form-control", id="course") }}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
-    {% if course_form.course.data %}
-        {# Check if a course is selected before showing the webcam feed #}
-        <img src="{{ url_for('video_feed', selected_course_id=course_form.course.data) }}" width="640" height="480" alt="Webcam Feed">
-    {% endif %}
+    
+    <img src="{{ url_for('video_feed') }}" alt="Webcam Feed">
 {% endblock %}
