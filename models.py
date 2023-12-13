@@ -18,7 +18,7 @@ class Student(db.Model):
 class Courses(db.Model):
     course_id = db.Column(db.Integer, primary_key = True)
     course_name = db.Column(db.String(50),nullable = False)
-    course_code = db.Column(db.String(50),unique = True,nullable = False)
+    course_code = db.Column(db.String(50),nullable = False)
     start_time = db.Column(db.Time(), nullable = False)
     end_time = db.Column(db.Time(), nullable = False)
     last_updated = db.Column(db.DateTime(), nullable = True)

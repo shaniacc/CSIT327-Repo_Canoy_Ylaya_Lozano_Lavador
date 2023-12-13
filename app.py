@@ -19,9 +19,7 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 
-#TODO change update into stored procedures not actual inserts
-#TODO add TRIGGERS(when creation of student/course a datetime is being recorded)
-#TODO finalize ui
+
 
 
 
@@ -118,25 +116,29 @@ def CourseList():
 
 @app.route('/updateCourse/<int:course_id>', methods=['GET', 'POST'])
 def updateCourse(course_id):
-    form = UpdateCourseForm() 
+    form = UpdateCourseForm()
     course_to_update = Courses.query.get_or_404(course_id)
-    
-    if request.method == 'POST' and form.validate_on_submit():
-        #* Update course information using stored procedure
-        update_course_procedure(course_id, form.update_course_name.data, form.update_course_code.data, form.update_start_time.data, form.update_end_time.data)
 
+    if request.method == 'POST' and form.validate_on_submit():
         try:
+            update_course_procedure(
+                course_id,
+                form.update_course_name.data,
+                form.update_course_code.data,
+                form.update_start_time.data,
+                form.update_end_time.data
+            )
+
             flash('Course Record Updated Successfully')
             return redirect(url_for('updateCourse', course_id=course_id))
         except Exception as e:
-            print(e)
-            db.session.rollback()  # Rollback the session to avoid leaving the database in a partially updated state
+            print(f"Error: {e}")
+            db.session.rollback()
             flash(f'Error in updating course record: {e}')
             return redirect(url_for('updateCourse', course_id=course_id))
-    else:
-        print("Form not submitted successfully. Form errors:", form.errors)
 
     return render_template('updateCourse.html', form=form, course_to_update=course_to_update, course_id=course_id)
+
 
 
 
