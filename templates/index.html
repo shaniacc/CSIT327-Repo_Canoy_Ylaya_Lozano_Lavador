@@ -1,16 +1,76 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
-    <h1>Automatic Attendance</h1>
+<style>
+    body {
+        background-color: #1f1525fb; /* Change this color to your preferred background color */
+        color: azure; /* Change text color */
+        font-family: Arial, sans-serif; /* Change font if desired */
+    }
 
-    <form method="post" action="{{ url_for('attendance') }}">
-        {{ course_form.hidden_tag() }}
-        <label for="course">Select Course:</label>
-        {{ course_form.course(class="form-control", id="course") }}
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 20px; /* Gap between columns */
+    }
 
-    {% if course_form.course.data %}
-        {# Check if a course is selected before showing the webcam feed #}
-        <img src="{{ url_for('video_feed', selected_course_id=course_form.course.data) }}" width="640" height="480" alt="Webcam Feed">
-    {% endif %}
+    .form-column {
+        padding: 100px;
+    }
+
+    .webcam-column {
+        padding:100px;
+    }
+
+    label { /* Style the label */
+        display: block; 
+        margin-bottom: 10px; 
+    }
+
+    .btn-primary { /* Style the submit button */
+        margin-top: 20px; 
+        background-color: blueviolet;
+        border-color: blueviolet;
+        width: 100px;
+    }
+
+    .custom-dropdown { /* Container for the dropdown */
+        position: relative;
+        display: inline-block;
+    }
+    .custom-dropdown img { /* Style the dropdown icon */
+        position: absolute;
+        top: 50%;
+        right: 10px; 
+        transform: translateY(-50%);
+        width: 15px; 
+        height: auto; 
+        pointer-events: none; 
+    }
+    .form-control { /* Style the dropdown */
+        padding-right: 30px; 
+        width: 500px;
+    }
+</style>
+
+<div class="grid-container">
+    <div class="form-column">
+        <h1 style="font-weight: bold; font-size: 70px;">Welcome to Checkr</h1>
+        <p style="font-size: 25px; color: rgb(253, 213, 255);">Your Face Recognition Automated Attendance System</p>
+        <form method="post" action="{{ url_for('attendance') }}" style="margin-top: 20px;">
+            {{ course_form.hidden_tag() }}
+            <div class="custom-dropdown">
+                {{ course_form.course(class="form-control", id="course", placeholder="--Select Course--") }}
+                <img src="{{ url_for('static', filename='css/images/dropdown_icon.png') }}" alt="Dropdown Icon">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="webcam-column">
+        {% if course_form.course.data %}
+            <img src="{{ url_for('video_feed', selected_course_id=course_form.course.data) }}" width="640" height="480" alt="Webcam Feed">
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
+
