@@ -1,5 +1,60 @@
 {%extends 'base.html'%}
     {%block content%}
+    <style>
+        body{
+            background-color: rgb(255, 255, 255);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+        }
+        
+        h1{
+            color: #1f1525fb;
+            font-weight: bold;
+            margin: 20px;
+            margin-bottom: 0px;
+            margin-left: 50px;
+        }
+
+        .table-format{
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-bottom: 50px;
+        }
+
+        td:first-child {
+        margin-left: 100px; /* Change the margin value according to your preference */
+        }
+
+        thead{
+            background-color: #1f1525fb;
+            color: azure;
+        }
+
+        th{
+            font-size: 16px;
+        }
+
+        table {
+            background-color: rgba(210, 197, 221, 0.154);
+        }
+
+        tr:hover{
+            background-color: rgba(147, 134, 158, 0.319);
+        }
+
+        .add-student{
+            width: 200px;
+            background-color: #1f1525fb;
+            color: white;
+            padding: 10px;
+        }
+
+        .add-student:hover{
+            background-color: rgb(79, 52, 79);
+            color: white;
+        }
+
+
+    </style>
         {%for message in get_flashed_messages(class )%}
                     
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -11,19 +66,47 @@
         {%endfor%}
 
 
-        <h1>Student List</h1>
-        <table class="table table-hover table-dark table-striped">
-            {%for students in students%}
-            <tr>
-                <td>
-                    <a href="{{url_for('updateStudent', id=students.id)}}">{{students.first_name}}</a> - {{students.last_name}} - {{students.roll_number}} - 
-                    <a class="btn btn-danger" href="{{url_for('deleteStudent', id=students.id)}}">Delete</a>
-                </td>
-            </tr>
-            
-            
+        <div style="display: flex; margin-right: 50px">
+            <h1>Student List</h1>
+            <a class="btn add-student" href="{{url_for('addStudent')}}" style="width: 200px; margin: 20px; margin-left: auto;">
+                <img src="{{url_for('static', filename='css/images/plus.png')}}" alt="Add Student" width="15px" height="15px" style="margin: 5px;">
+                Add Student
+            </a>
+        </div>
+        
+        <hr style="margin-left: 50px; margin-right: 50px; border-top: 2px solid #1f1525fb;">
+        <div class="table-format">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col"> </th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Roll Number</th>
+                        <th scope="col" style="text-align: center;">Action</th>
+                    </tr>
+                </thead>
+                {%for students in students%}
+                <tbody>
+                    <tr>
+                        <td> </td>
+                        <td>{{students.first_name}}</td>
+                        <td>{{students.last_name}}</td>
+                        <td>{{students.roll_number}}</td>
+                        <td style="text-align: center;">
+                            <a class="btn btn-primary" href="{{url_for('updateStudent', id=students.id)}}" style="width: 100px; margin: 5px;">
+                                <img src="{{url_for('static', filename='css/images/edit.png')}}" alt="Edit" width="15px" height="15px">
+                                Edit
+                            </a>
+                            <a class="btn btn-danger" href="{{url_for('deleteStudent', id=students.id)}}" style="width: 100px; margin: 5px;">
+                                <img src="{{url_for('static', filename='css/images/delete.png')}}" alt="Delete" width="15px" height="15px">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
             {%endfor%}
             </table>
-    
+        </div>
     
     {%endblock%}
