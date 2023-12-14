@@ -1,9 +1,63 @@
 <!--# In your HTML template (AttendanceList.html):-->
 {% extends 'base.html' %}
-{% block content %}
+    {% block content %}
+    <style>
+        body{
+            background-color: rgb(255, 255, 255);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+        }
+        
+        h1{
+            color: #1f1525fb;
+            font-weight: bold;
+            margin: 20px;
+            margin-bottom: 0px;
+            margin-left: 50px;
+        }
 
-{%for message in get_flashed_messages(class )%}
-                
+        .table-format{
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-bottom: 50px;
+        }
+
+        td:first-child {
+        margin-left: 100px; /* Change the margin value according to your preference */
+        }
+
+        thead{
+            background-color: #1f1525fb;
+            color: azure;
+        }
+
+        th{
+            font-size: 16px;
+        }
+
+        table {
+            background-color: rgba(210, 197, 221, 0.154);
+        }
+
+        tbody:hover{
+                background-color: rgba(147, 134, 158, 0.319);
+        }
+
+        .add-student{
+            width: 200px;
+            background-color: #1f1525fb;
+            color: white;
+            padding: 10px;
+        }
+
+        .add-student:hover{
+            background-color: rgb(79, 52, 79);
+            color: white;
+        }
+
+
+    </style>
+    {%for message in get_flashed_messages(class )%}
+                    
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
             <strong>{{TRY}}</strong>
@@ -12,16 +66,24 @@
         
     {%endfor%}
 
-<h1>Attendance List</h1>
-<table class="table table-hover table-dark table-striped">
-    <tr>
-        <th>Student Name</th>
-        <th>Course ID</th>
-        <th>Date</th>
-        <th>Status</th>
-    </tr>
+    <h1>Attendance List</h1>
+
+    <hr style="margin-left: 50px; margin-right: 50px; border-top: 2px solid #1f1525fb;">
+    <div class="table-format">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th> </th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Course ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
     {% for attendance in attendance %}
+    <tbody>
         <tr>
+            <td> </td>
             <td>
                 {% for student in students %}
                     {% if student.id == attendance.student_id %}
@@ -31,8 +93,16 @@
             </td>
             <td>{{ attendance.course_id }}</td>
             <td>{{ attendance.date }}</td>
-            <td>{{ attendance.status }}</td>
+            <td style="font-weight: bold; ">
+                {{ attendance.status }}
+            </td>
         </tr>
+    </tbody>    
     {% endfor %}
 </table>
+</div>
+<footer style="margin-bottom: 50px;">
+    <hr style="margin-left: 50px; margin-right: 50px; border-top: 2px solid #1f1525fb;">
+    <p style="text-align: center; margin-bottom: 0px; font-size: 12px;">&copy; 2023 | Checkr: Automated Attendance Checker</p>
+</footer>
 {% endblock %}
