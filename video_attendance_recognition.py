@@ -40,8 +40,17 @@ def gen(selected_course_id,app):
                         continue
                      # Fetch the course object
                     course = Courses.query.get(selected_course_id)
+                    
+                    # Adjust the end time if it's before the start time
+                    if course.end_time < course.start_time:
+                        # Use a fixed date for both times
+                        start_datetime = datetime.combine(datetime.now().date(), course.start_time)
+                        end_datetime = datetime.combine(datetime.now().date(), course.end_time) + timedelta(days=1)
+                    else:
+                        start_datetime = datetime.combine(datetime.now().date(), course.start_time)
+                        end_datetime = datetime.combine(datetime.now().date(), course.end_time)
 
-                    if course and course.start_time <= datetime.now().time() <= course.end_time:
+                    if course and start_datetime <= datetime.now() <= end_datetime:
                         # Record attendance as 'Present'
                         status = 'Present'
                     else:
