@@ -29,6 +29,10 @@
             color: azure;
         }
 
+        tbody:hover{
+            background-color: rgba(147, 134, 158, 0.319);
+        }
+
         th{
             font-size: 16px;
         }
@@ -36,11 +40,7 @@
         table {
             background-color: rgba(210, 197, 221, 0.154);
         }
-
-        tr:hover{
-            background-color: rgba(147, 134, 158, 0.319);
-        }
-
+        
         .add-student{
             width: 200px;
             background-color: #1f1525fb;
@@ -52,7 +52,6 @@
             background-color: rgb(79, 52, 79);
             color: white;
         }
-
 
     </style>
         {%for message in get_flashed_messages(class )%}
