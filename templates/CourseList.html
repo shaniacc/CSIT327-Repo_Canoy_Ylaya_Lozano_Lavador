@@ -38,8 +38,8 @@
         background-color: rgba(210, 197, 221, 0.154);
     }
 
-    tr:hover{
-        background-color: rgba(147, 134, 158, 0.319);
+    tbody:hover{
+            background-color: rgba(147, 134, 158, 0.319);
     }
 
     .add-student{
@@ -80,18 +80,25 @@
                         <th scope="col">Course Code</th>
                         <th scope="col">Course Name</th>
                         <th scope="col">Time Slot</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style="text-align: center;">Action</th>
                     </tr>
                 </thead>
                 {% for course in courses %}
                 <tbody>
                     <tr>
                         <td> </td>
-                        <td><a href="{{ url_for('updateCourse', course_id=course.course_id) }}">{{ course.course_code }}</a></td>
+                        <td>{{course.course_code }}</td>
                         <td>{{course.course_name}}</td>
                         <td>{{course.start_time.strftime('%H:%M')}} - {{course.end_time.strftime('%H:%M')}}</td>
-                        <td>
-                            <a class ="btn btn-danger"href="{{ url_for('deleteCourse', course_id=course.course_id) }}">Delete</a>
+                        <td style="text-align: center;">
+                            <a class="btn btn-primary" href="{{ url_for('updateCourse', course_id=course.course_id) }}" style="width: 100px; margin: 5px;">
+                                <img src="{{url_for('static', filename='css/images/edit.png')}}" alt="Edit" width="15px" height="15px">
+                                Edit
+                            </a>
+                            <a class="btn btn-danger" href="{{ url_for('deleteCourse', course_id=course.course_id) }}" style="width: 100px; margin: 5px;">
+                                <img src="{{url_for('static', filename='css/images/delete.png')}}" alt="Delete" width="15px" height="15px">
+                                Delete
+                            </a>
                         </td>
                     </tr>
                 </tbody>
