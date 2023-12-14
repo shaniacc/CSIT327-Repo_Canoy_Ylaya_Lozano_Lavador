@@ -87,7 +87,7 @@
                 <tbody>
                     <tr>
                         <td> </td>
-                        <td>{{course.course_code}}</td>
+                        <td><a href="{{ url_for('updateCourse', course_id=course.course_id) }}">{{ course.course_code }}</a></td>
                         <td>{{course.course_name}}</td>
                         <td>{{course.start_time.strftime('%H:%M')}} - {{course.end_time.strftime('%H:%M')}}</td>
                         <td>
