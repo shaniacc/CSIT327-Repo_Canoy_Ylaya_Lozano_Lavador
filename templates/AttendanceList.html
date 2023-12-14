@@ -53,7 +53,25 @@
             background-color: rgb(79, 52, 79);
             color: white;
         }
-
+        .present,
+        .absent {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 10px;
+            padding-left: 10px;
+            font-size: 12px;
+            vertical-align: middle;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .present {
+            background-color: rgba(144, 238, 144, 0.7);
+            color: rgb(13, 105, 13);
+        }
+        .absent {
+            background-color: rgba(255, 99, 71, 0.7);
+            color: rgb(141, 21, 21);
+        }
 
     </style>
     {%for message in get_flashed_messages(class )%}
@@ -93,9 +111,13 @@
             </td>
             <td>{{ attendance.course_id }}</td>
             <td>{{ attendance.date }}</td>
-            <td style="font-weight: bold; ">
-                {{ attendance.status }}
-            </td>
+            <td style="font-weight: bold;">
+                {% if attendance.status == 'Present' %}
+                    <span class='present'>{{ attendance.status }}</span>
+                {% elif attendance.status == 'Absent' %}
+                    <span class='absent'>{{ attendance.status }}</span>
+                {% endif %}
+            </td>                        
         </tr>
     </tbody>    
     {% endfor %}
