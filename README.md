@@ -67,8 +67,9 @@ Thanks goes to these wonderful people
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 ## Thanks ✨
 
-A huge thanks to 🙏 DB4free.net  🙏 
-provides a testing service for the latest - sometimes even development - version of the [MySQL Server](https://www.mysql.com/). You can easily [create an account for free](https://www.db4free.net/signup.php) and test your applications, for example to make sure that they still work after a MySQL version update. db4free.net is also a good resource for education and to make yourself familiar with new features that were introduced in new versions.
+A huge thanks to 🙏 <a href="https://www.db4free.net/">DB4free.net </a> 🙏 
+<br>
+They provide testing services for the latest - sometimes even development - version of the [MySQL Server](https://www.mysql.com/). You can easily [create an account for free](https://www.db4free.net/signup.php) and test your applications, for example to make sure that they still work after a MySQL version update. db4free.net is also a good resource for education and to make yourself familiar with new features that were introduced in new versions.
 
 db4free.net aims to always provide either the latest production release or the latest development release. db4free.net's MySQL server will be updated very soon after a new version is released, usually on the same day or very soon after.
 
