@@ -32,6 +32,14 @@ Checkr is a Facial Recognition Attendance Program for our Information Management
   4. Run <a href= "https://github.com/shaniacc/CSIT327-Repo_Canoy_Ylaya_Lozano_Lavador/blob/bfa2edca34047995eb86e4de4f1b78fe98c8e4b5/app.py">app.py</a>
   5. Enjoy 😊
   
+  If you want to access the Database
+  1. Go to DB4free.net
+  2. Login to <a href="https://www.db4free.net/phpMyAdmin">phpMyAdmin</a>
+   ```
+   USERNAME: attendanceadmin
+   PASSWORD:tearoff1attendance
+   ```
+   
  
 
 
