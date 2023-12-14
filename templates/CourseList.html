@@ -69,6 +69,10 @@
 
         <div style="display: flex; margin-right: 50px">
             <h1>Course List</h1>
+            <a class="btn add-student" href="{{url_for('addCourse')}}" style="width: 200px; margin: 20px; margin-left: auto;">
+                <img src="{{url_for('static', filename='css/images/plus.png')}}" alt="Add Student" width="15px" height="15px" style="margin: 5px;">
+                Add Course
+            </a>
         </div>
 
         <hr style="margin-left: 50px; margin-right: 50px; border-top: 2px solid #1f1525fb;">
@@ -95,7 +99,7 @@
                                 <img src="{{url_for('static', filename='css/images/edit.png')}}" alt="Edit" width="15px" height="15px">
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="{{ url_for('deleteCourse', course_id=course.course_id) }}" style="width: 100px; margin: 5px;">
+                            <a class="btn btn-danger" href="{{ url_for('deleteCourse', course_id=course.course_id) }}" style="width: 100px; margin: 5px;" onclick="return confirm('Are you sure you want to delete this Course?');">
                                 <img src="{{url_for('static', filename='css/images/delete.png')}}" alt="Delete" width="15px" height="15px">
                                 Delete
                             </a>

@@ -56,15 +56,15 @@
             <img src="{{ url_for('static', filename='css/images/addCourse.png') }}" alt="Illustration" class="img-fluid">
         </div>
         <div class="col-md-6" style="padding-right: 50px;">
-            {% for message in get_flashed_messages() %}
+
+            <form method="POST">
+                {% for message in get_flashed_messages() %}
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
                     <strong>{{ message }}</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            {% endfor %}
-
-            <form method="POST">
+                {% endfor %}
                 <h1>Add Course</h1>
                 <p>Please fill out the following details to add a new course:</p>
                 {{ form.hidden_tag() }}

@@ -48,18 +48,17 @@
 </style>
 <div class="row container">
     <div class="col-md-6"> <!-- Column for the image (half width on medium screens) -->
-        <!-- Add your image here -->
         <img src="{{url_for('static',filename='css/images/add student.png')}}" alt="Illustration" class="img-fluid" style="padding-left: 70px;">
     </div>
     <div class="col-md-6" style="padding-top:50px; padding-right: 100px;"> <!-- Column for the form (half width on medium screens) -->
-        {% for message in get_flashed_messages() %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <strong>{{ message }}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %}
         <form method="POST" enctype="multipart/form-data">
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
             <h1 style="font-weight: bold; color: #1f1525fb;">Add Student</h1>
             <p>Please fill out the following details to add a new student:</p>
             {{ form.hidden_tag() }}

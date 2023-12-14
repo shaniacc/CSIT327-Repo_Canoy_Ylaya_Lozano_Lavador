@@ -42,18 +42,17 @@
             color: red;
         }
     </style>
-        {%for message in get_flashed_messages(class )%}
-                
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <strong>{{message}}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        
-        {%endfor%}
-
         <div>
             <form action="/updateStudent/{{student_to_update.id}}"method ="POST" enctype="multipart/form-data">
+                {%for message in get_flashed_messages(class )%}
+                
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                    <strong>{{message}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                
+                {%endfor%}
                 <h1>Update Student</h1>
                 {{form.hidden_tag()}}
                 {{form.update_first_name.label(class="form-label")}}
