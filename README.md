@@ -7,7 +7,6 @@
 &nbsp;
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![first-timers-only Friendly](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](http://www.firsttimersonly.com/)
 
 Checkr is a Facial Recognition Attendance Program for our Information Management 2 Project. This system was made by <a href="https://flask.palletsprojects.com/en/3.0.x/">flask</a>
@@ -65,6 +64,9 @@ Thanks goes to these wonderful people
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+## Contributors ✨
+Unfortunately, we are not accepting any pull requests since this is just a project for our course at the moment. Feel free to fork it and improve upon it. 😊 Good luck!!! 😊
+
 ## Thanks ✨
 
 A huge thanks to 🙏 <a href="https://www.db4free.net/">DB4free.net </a> 🙏 
