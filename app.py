@@ -136,22 +136,24 @@ def updateCourse(course_id):
             db.session.rollback()
             flash(f'Error in updating course record: {e}')
             return redirect(url_for('updateCourse', course_id=course_id))
-
+    
     return render_template('updateCourse.html', form=form, course_to_update=course_to_update, course_id=course_id)
 
 
 
 
-@app.route('/deleteStudent/<int:id>',methods=['GET','POST'])
+@app.route('/deleteStudent/<int:id>', methods=['GET', 'POST'])
 def deleteStudent(id):
     student_to_delete = Student.query.get_or_404(id)
     try:
+        Attendance.query.filter_by(student_id=id).delete()
         db.session.delete(student_to_delete)
         db.session.commit()
         flash('Student Record Deleted Successfully')
         return redirect(url_for('StudentList'))
-    except:
-        flash('Error in deleting student record')
+    except Exception as e:
+        db.session.rollback()
+        flash(f'Error in deleting student record: {e}')
         return redirect(url_for('StudentList'))
     
 
@@ -164,7 +166,7 @@ def deleteCourse(course_id):
         db.session.commit()
         flash('Course Record Deleted Successfully')
         return redirect(url_for('CourseList'))
-    except:
+    except Exception as e:
         flash('Error in deleting course record')
         return redirect(url_for('CourseList'))
 
