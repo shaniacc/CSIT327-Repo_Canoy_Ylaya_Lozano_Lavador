@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
+
 {% block content %}
+
 <style>
+
     body {
-        background-color: #1f1525fb; /* Change this color to your preferred background color */
-        color: azure; /* Change text color */
-        font-family: Arial, sans-serif; /* Change font if desired */
+        background-color: #1f1525fb;
+        color: azure;
+        font-family: Arial, sans-serif;
     }
 
     .grid-container {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Two equal columns */
-        gap: 20px; /* Gap between columns */
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
     }
 
     .form-column {
@@ -21,23 +24,24 @@
         padding:100px;
     }
 
-    label { /* Style the label */
+    label {
         display: block; 
         margin-bottom: 10px; 
     }
 
-    .btn-primary { /* Style the submit button */
+    .btn-primary {
         margin-top: 20px; 
         background-color: blueviolet;
         border-color: blueviolet;
         width: 100px;
     }
 
-    .custom-dropdown { /* Container for the dropdown */
+    .custom-dropdown {
         position: relative;
         display: inline-block;
     }
-    .custom-dropdown img { /* Style the dropdown icon */
+
+    .custom-dropdown img {
         position: absolute;
         top: 50%;
         right: 10px; 
@@ -46,13 +50,16 @@
         height: auto; 
         pointer-events: none; 
     }
-    .form-control { /* Style the dropdown */
+
+    .form-control {
         padding-right: 30px; 
         width: 500px;
     }
+
 </style>
 
 <div class="grid-container">
+
     <div class="form-column">
         <h1 style="font-weight: bold; font-size: 70px;">Welcome to Checkr</h1>
         <p style="font-size: 25px; color: rgb(253, 213, 255);">Your Face Recognition Automated Attendance System</p>
@@ -68,9 +75,10 @@
 
     <div class="webcam-column">
         {% if course_form.course.data %}
-            <img src="{{ url_for('video_feed', selected_course_id=course_form.course.data) }}" width="640" height="480" alt="Webcam Feed">
+        <img src="{{ url_for('video_feed', selected_course_id=course_form.course.data) }}" width="640" height="480" alt="Webcam Feed">
         {% endif %}
     </div>
-</div>
-{% endblock %}
 
+</div>
+
+{% endblock %}

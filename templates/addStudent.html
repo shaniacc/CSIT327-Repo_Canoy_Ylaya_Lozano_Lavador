@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
+
 <style>
+
   body {
     background-color: #1f1525fb;
     color: azure;
@@ -39,7 +41,6 @@
   }
 
   .container {
-    /* Container for the image and the form */
     max-width: 100%;
     margin: 0 auto;
     overflow-x: hidden;
@@ -47,6 +48,7 @@
 </style>
 
 <div class="row container">
+
   <div class="col-md-6">
     <!-- Column for the image (half width on medium screens) -->
     <img
@@ -56,7 +58,9 @@
       style="padding-left: 70px"
     />
   </div>
+
   <div class="col-md-6" style="padding-top: 50px; padding-right: 100px">
+
     <!-- Column for the form (half width on medium screens) -->
     <form method="POST" enctype="multipart/form-data">
       {% for message in get_flashed_messages() %}
@@ -110,6 +114,9 @@
       <br />
       {{ form.submit(class="btn") }}
     </form>
+
   </div>
+
 </div>
+
 {% endblock %}
