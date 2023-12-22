@@ -3,6 +3,7 @@
 {% block title %}Automatic Attendance{% endblock %}
 
 {% block content %}
+
     <h1>Automatic Attendance</h1>
 
     <form method="post" action="{{ url_for('attendance') }}">
@@ -13,4 +14,5 @@
     </form>
     
     <img src="{{ url_for('video_feed') }}" alt="Webcam Feed">
+
 {% endblock %}

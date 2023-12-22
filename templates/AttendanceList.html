@@ -1,7 +1,11 @@
 <!--# In your HTML template (AttendanceList.html):-->
+
 {% extends 'base.html' %}
+
     {% block content %}
+
     <style>
+
         body{
             background-color: rgb(255, 255, 255);
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
@@ -22,7 +26,7 @@
         }
 
         td:first-child {
-        margin-left: 100px; /* Change the margin value according to your preference */
+            margin-left: 100px;
         }
 
         thead{
@@ -39,7 +43,7 @@
         }
 
         tbody:hover{
-                background-color: rgba(147, 134, 158, 0.319);
+            background-color: rgba(147, 134, 158, 0.319);
         }
 
         .add-student{
@@ -53,6 +57,7 @@
             background-color: rgb(79, 52, 79);
             color: white;
         }
+
         .present,
         .absent {
             padding-top: 5px;
@@ -64,16 +69,19 @@
             border-radius: 2px;
             display: inline-block;
         }
+
         .present {
             background-color: rgba(144, 238, 144, 0.7);
             color: rgb(13, 105, 13);
         }
+
         .absent {
             background-color: rgba(255, 99, 71, 0.7);
             color: rgb(141, 21, 21);
         }
 
     </style>
+
     {%for message in get_flashed_messages(class )%}
                     
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -85,46 +93,48 @@
     {%endfor%}
 
     <h1>Attendance List</h1>
-
     <hr style="margin-left: 50px; margin-right: 50px; border-top: 2px solid #1f1525fb;">
     <div class="table-format">
-    <table class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th> </th>
-                <th scope="col">Student Name</th>
-                <th scope="col">Course ID</th>
-                <th scope="col">Date</th>
-                <th scope="col">Status</th>
-            </tr>
-        </thead>
-    {% for attendance in attendance %}
-    <tbody>
-        <tr>
-            <td> </td>
-            <td>
-                {% for student in students %}
-                    {% if student.id == attendance.student_id %}
-                        {{ student.first_name }} {{ student.last_name }}
-                    {% endif %}
-                {% endfor %}
-            </td>
-            <td>{{ attendance.course_id }}</td>
-            <td>{{ attendance.date }}</td>
-            <td style="font-weight: bold;">
-                {% if attendance.status == 'Present' %}
-                    <span class='present'>{{ attendance.status }}</span>
-                {% elif attendance.status == 'Absent' %}
-                    <span class='absent'>{{ attendance.status }}</span>
-                {% endif %}
-            </td>                        
-        </tr>
-    </tbody>    
-    {% endfor %}
-</table>
-</div>
-<footer style="margin-bottom: 50px;">
-    <hr style="margin-left: 50px; margin-right: 50px; border-top: 2px solid #1f1525fb;">
-    <p style="text-align: center; margin-bottom: 0px; font-size: 12px;">&copy; 2023 | Checkr: Automated Attendance Checker</p>
-</footer>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            {% for attendance in attendance %}
+            <tbody>
+                <tr>
+                    <td> </td>
+                    <td>
+                        {% for student in students %}
+                            {% if student.id == attendance.student_id %}
+                                {{ student.first_name }} {{ student.last_name }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ attendance.course_id }}</td>
+                    <td>{{ attendance.date }}</td>
+                    <td style="font-weight: bold;">
+                        {% if attendance.status == 'Present' %}
+                            <span class='present'>{{ attendance.status }}</span>
+                        {% elif attendance.status == 'Absent' %}
+                            <span class='absent'>{{ attendance.status }}</span>
+                        {% endif %}
+                    </td>                        
+                </tr>
+            </tbody>    
+            {% endfor %}
+        </table>    
+
+    </div>
+
+    <footer style="margin-bottom: 50px;">
+        <hr style="margin-left: 50px; margin-right: 50px; border-top: 2px solid #1f1525fb;">
+        <p style="text-align: center; margin-bottom: 0px; font-size: 12px;">&copy; 2023 | Checkr: Automated Attendance Checker</p>
+    </footer>
+    
 {% endblock %}

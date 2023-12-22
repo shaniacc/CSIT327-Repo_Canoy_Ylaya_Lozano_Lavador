@@ -1,13 +1,12 @@
 
 <p align="center">
-<img src= "https://private-user-images.githubusercontent.com/67945664/290464752-1a06c175-305f-4e92-9d37-e1265620e37e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDI1NDUyNzAsIm5iZiI6MTcwMjU0NDk3MCwicGF0aCI6Ii82Nzk0NTY2NC8yOTA0NjQ3NTItMWEwNmMxNzUtMzA1Zi00ZTkyLTlkMzctZTEyNjU2MjBlMzdlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFJV05KWUFYNENTVkVINTNBJTJGMjAyMzEyMTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjMxMjE0VDA5MDkzMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTYyZmRjOTViZjM3NTc4NjcyZjNmZGY3ZjAzZWQyZDhmOTMyZTNjNDQ4MzcxNGMzMTM3MzdkNzYwMDc4MjE1N2EmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.wOMetUB_mxY1wygNgEtvV7FAtP_fw_iPbjh3jFLeTCw">
+<img src= "https://private-user-images.githubusercontent.com/67945664/290464752-1a06c175-305f-4e92-9d37-e1265620e37e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDMwMTMzOTUsIm5iZiI6MTcwMzAxMzA5NSwicGF0aCI6Ii82Nzk0NTY2NC8yOTA0NjQ3NTItMWEwNmMxNzUtMzA1Zi00ZTkyLTlkMzctZTEyNjU2MjBlMzdlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFJV05KWUFYNENTVkVINTNBJTJGMjAyMzEyMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjMxMjE5VDE5MTEzNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWViNzZjODUxNGMwOTI1MTEwYzQwNjI0MTVmYjRkZTk1ZDEwYTRhMmQ1NmQ5YTNmNjU3ZWY5NDcwZjMxMTU5YmYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.viz9PWe3dweYDxUD5L2vHJqD8h7x1HhVMMMFwhqzS_0">
 
 </p>
 
 &nbsp;
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![first-timers-only Friendly](https://img.shields.io/badge/first--timers--only-friendly-blue.svg)](http://www.firsttimersonly.com/)
 
 Checkr is a Facial Recognition Attendance Program for our Information Management 2 Project. This system was made by <a href="https://flask.palletsprojects.com/en/3.0.x/">flask</a>
@@ -65,6 +64,9 @@ Thanks goes to these wonderful people
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+## Contributors ✨
+Unfortunately, we are not accepting any pull requests since this is just a project for our course at the moment. Feel free to fork it and improve upon it. 😊 Good luck!!! 😊
+
 ## Thanks ✨
 
 A huge thanks to 🙏 <a href="https://www.db4free.net/">DB4free.net </a> 🙏 
